@@ -10,6 +10,14 @@ function jump(){
         character.classList.remove('animate')
     }, 500);
 }
+
+document.getElementById('highscore');
+var x = 0;
+
+var highscore = setInterval(function(){
+    document.getElementById('highscore').innerHTML = x;
+    x++;
+}, 100)
  
 var checkDead = setInterval(function(){
     var characterTop = parseInt(window.getComputedStyle(character).getPropertyValue("top"));
@@ -19,5 +27,8 @@ var checkDead = setInterval(function(){
         block.style.animation = 'none';
         block.style.display = 'none';
         alert("u lose.");
+        clearInterval(highscore);
+        document.getElementById('html').onclick = '';
+
     }
 }, 10);
